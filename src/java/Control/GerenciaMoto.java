@@ -9,6 +9,8 @@ import Dao.MotoDao;
 import Model.Moto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,16 +44,31 @@ public class GerenciaMoto extends HttpServlet {
         System.out.println("Chegou na servlet");
 
         String acao = request.getParameter("acao"); //busca o value do botao clicado
-        String id_moto = request.getParameter("id_moto");
+        int id_moto = Integer.valueOf(request.getParameter("id_moto"));
 
         if (acao.equals("Excluir")) {
             System.out.println("você clicou no botao excluir");
             System.out.println("id da moto: " + id_moto);
             
+            Moto m = new Moto();
+            m.setId(id_moto);
+            
+            try {
+                MotoDao dao = new MotoDao();
+                dao.remove(m);
+            } catch (ClassNotFoundException ex) {
+                System.out.println("Erro ao Excluir moto servlet "+ ex.getMessage());
+            }
+              //redirecionamento automatico 
+            RequestDispatcher rd = request.getRequestDispatcher("/consulta.jsp");
+
+            rd.forward(request, response);
+            
             
         } else if (acao.equals("Editar")) {
-            System.out.println("você clicou no botão editar");
-            System.out.println("id da moto: " + id_moto);
+           //Fazer função de preencher objeto por id na Dao
+           //retornar esse objeto na servlet
+           //passar os parametros do objeto para a jsp alterar
             
         
         } else if (acao.equals("Cadastrar")) {

@@ -80,8 +80,54 @@ public class MotoDao {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-
         }
-    }
+   }
+       
+    public void remove(Moto m) {
+        try {
+            PreparedStatement st = con.prepareStatement("delete from Moto where id =?");
+            st.setInt(1, m.getId());
+            st.execute();
+            st.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    } 
+    
+     public Moto PesquisaID(int id_moto) {
+
+        try {
+            PreparedStatement st = this.con.prepareStatement("SELECT * FROM Moto");
+            //Executa uma consulta 
+            ResultSet rs = st.executeQuery();
+            Moto m = new Moto();
+            while (rs.next()) {
+                //Percorre Linha por Linha para preencher o Objeto
+                if(id_moto == rs.getInt("id") ){
+                
+                
+                m.setId(rs.getInt("id"));
+                m.setMarca(rs.getString("marca"));
+                m.setModelo(rs.getString("modelo"));
+                m.setAno(rs.getInt("ano"));
+                m.setValor(rs.getDouble("valor"));
+                
+                }
+               
+            }
+            rs.close();
+            st.close();
+            return m;
+            //Mostra o ArrayList dps de receber os carros do BD
+            
+
+        } catch (SQLException e) {
+            System.out.println("erro na pesquisa por ID"+ e.getMessage());
+            throw new RuntimeException(e);
+        }
+   }
+       
+
 
 }
