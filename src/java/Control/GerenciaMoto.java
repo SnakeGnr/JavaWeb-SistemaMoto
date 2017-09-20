@@ -64,8 +64,9 @@ public class GerenciaMoto extends HttpServlet {
             rd.forward(request, response);
 
         } else if (acao.equals("Cadastrar")) {
-            String modelo = request.getParameter("modelo");
+            
             String marca = request.getParameter("marca");
+            String modelo = request.getParameter("modelo");
             String potencia = request.getParameter("potencia");
             String ano = request.getParameter("ano");
             String valor = request.getParameter("valor");
@@ -76,7 +77,7 @@ public class GerenciaMoto extends HttpServlet {
             moto.setMarca(marca);
             moto.setPotencia(Integer.valueOf(potencia));
             moto.setAno(Integer.valueOf(ano));
-            moto.setValor(Double.valueOf(ano));
+            moto.setValor(Double.valueOf(valor));
 
             try {
                 MotoDao dao = new MotoDao();
@@ -101,7 +102,7 @@ public class GerenciaMoto extends HttpServlet {
 
             out.println("<html>");
             out.println("<body>");
-            out.println("   <form action=\"GerenciaMoto\" method=\"post\">\n" +
+            out.println("  <form action=\"GerenciaMoto\" method=\"post\">\n" +
 "            <table>\n" +
 "                <tr>   \n" +
 "                    <td> ID:</td> <td>  <input type=\"text\" name=\"id\" readonly=\"true\" value="+id_moto +"  /></td>\n" +
