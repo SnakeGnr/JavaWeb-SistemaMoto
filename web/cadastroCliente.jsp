@@ -11,6 +11,8 @@
         <title>Cadastro de Clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="icon" type="image/gif" href="img/animated_favicon1.gif">
         <script>
             function mascara(t, mask) {
                 var i = t.value.length;
@@ -21,6 +23,17 @@
                 }
             }
 
+            function SomenteNumero(e) {
+                var tecla = (window.event) ? event.keyCode : e.which;
+                if ((tecla > 47 && tecla < 58))
+                    return true;
+                else {
+                    if (tecla == 8 || tecla == 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
         </script>
     </head>
 
@@ -45,16 +58,16 @@
                     <td> Email:</td> <td> <input type="text" name="email"   /></td>
                 </tr>
                 <tr>
-                    <td> CPF: </td> <td><input type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##')" /></td>
+                    <td> CPF: </td> <td><input type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##'); return SomenteNumero(event) "  maxlength="14"/></td>
                 </tr>
                 <tr>
                     <td> DataNasc: </td> <td><input type="date" name="dataNasc" /></td>
                 </tr>
                 <tr> 
-                    <td> Telefone: </td> <td> <input type="text" name="telefone" id="telefone" onkeypress="mascara(this, '## #####-####')"/></td>
+                    <td> Telefone: </td> <td> <input type="text" name="telefone" id="telefone" onkeypress="mascara(this, '## #####-####'); return SomenteNumero(event)" maxlength="13"/></td>
                 </tr>
                 <tr> 
-                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '#####-###');" maxlength="9" /></td>
+                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '#####-###');return SomenteNumero(event)" maxlength="9" /></td>
                 </tr>
             </table>
             <br>
