@@ -40,7 +40,7 @@ public class GerenciaMoto extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         //System.out.println("Chegou na servlet");
-
+           PrintWriter out = response.getWriter();
         String acao = request.getParameter("acao"); //busca o value do botao clicado
         
 
@@ -58,8 +58,10 @@ public class GerenciaMoto extends HttpServlet {
             } catch (ClassNotFoundException ex) {
                 System.out.println("Erro ao Excluir moto servlet " + ex.getMessage());
             }
+            
+            
             //redirecionamento automatico 
-            RequestDispatcher rd = request.getRequestDispatcher("/consulta.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("consulta.jsp");
 
             rd.forward(request, response);
 
@@ -85,53 +87,17 @@ public class GerenciaMoto extends HttpServlet {
             } catch (Exception e) {
                 System.out.println("Erro ao cadastrar moto: " + e.getMessage());
             }
-
+            
+            out.println ("<html><body><script>alert('Hello World!');</script></body></html>");
+            
+            
             //redirecionamento automatico 
             RequestDispatcher rd = request.getRequestDispatcher("/consulta.jsp");
 
             rd.forward(request, response);
-        } else if (acao.equals("Editar")) {
-            int id_moto = Integer.valueOf(request.getParameter("id_moto"));
-            String modelo = request.getParameter("modelo");
-            String marca = request.getParameter("marca");
-            String potencia = request.getParameter("potencia");
-            String ano = request.getParameter("ano");
-            String valor = request.getParameter("valor");
             
-            PrintWriter out = response.getWriter();
-
-            out.println("<html>");
-            out.println("<body>");
-            out.println("  <form action=\"GerenciaMoto\" method=\"post\">\n" +
-"            <table>\n" +
-"                <tr>   \n" +
-"                    <td> ID:</td> <td>  <input type=\"text\" name=\"id\" readonly=\"true\" value="+id_moto +"  /></td>\n" +
-"                </tr>\n" +
-"                <tr>   \n" +
-"                    <td> Marca:</td> <td>  <input type=\"text\" name=\"marca\" value=\"marca\" /></td>\n" +
-"                </tr>\n" +
-"                <tr> \n" +
-"                    <td> Modelo:</td> <td> <input type=\"text\" name=\"modelo\" /></td>\n" +
-"                </tr>\n" +
-"                 <tr>\n" +
-"                    <td> Potência: </td> <td><input type=\"text\" name=\"potencia\" /></td>\n" +
-"                </tr>\n" +
-"                <tr>\n" +
-"                    <td> Ano: </td> <td><input type=\"text\" name=\"ano\" /></td>\n" +
-"                </tr>\n" +
-"                <tr> \n" +
-"                    <td> Valor: </td> <td> <input type=\"text\" name=\"valor\" /></td>\n" +
-"                </tr>\n" +
-"            </table>\n" +
-"            <br>\n" +
-"\n" +
-"            <span> <input type=\"submit\" value=\"Cadastrar\" name=\"acao\" style=\"background-color: green\" /> </span>\n" +
-"            <a href=\"index.jsp\"> <input type=\"button\" value=\"Cancelar\" style=\"background-color: red\" /> </a>\n" +
-"        </form> ");
-           
-            out.println("</body>");
-            out.println("</html>");
-
+        } else if (acao.equals("Editar")) {
+            out.println ("<html><body><script>alert('Hello World!');</script></body></html>");
         }
     }
 

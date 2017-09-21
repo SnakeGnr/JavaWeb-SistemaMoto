@@ -13,7 +13,7 @@ public class ConexaoBD {
     private String caminho = "jdbc:postgresql://localhost:5432/senai";
     private String driver = "org.postgresql.Driver";
     private String usuario = "postgres";
-    private String senha = "professor";
+    private String senha = "aluno";
     
     public Connection getConnection () throws ClassNotFoundException{
         try {

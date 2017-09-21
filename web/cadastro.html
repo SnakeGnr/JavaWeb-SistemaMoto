@@ -10,17 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-            function validaCampos() {
-
-                if (document.dados.marca.value == "" ||document.dados.modelo.value == "" ){
-                    alert("Preencha campo Marca e modelo");
-                    document.dados.marca.focus();
-                    return false;
-                }
-                return true;
-            }
-            
-           
+                 
         </script>
     </head>
 
@@ -31,31 +21,33 @@ and open the template in the editor.
             <a href='index.html'><input type="button" value="Home"></a>
             <a href='cadastro.html'><input type="button" value="Cadastrar Moto"></a>
             <a href='consulta.jsp'><input type="button" value="Gerenciar Motos"></a>       
+            <a href='cadastroCliente.jsp'><input type="button" value="Cadastrar Cliente"></a>
+            <a href='consultaCliente.jsp'><input type="button" value="Gerenciar Clientes"></a>     
         </div>
         <br>
         <br>
-        <form action="GerenciaMoto" method="post" name="dados" onSubmit="return validacampos();">
+        <form action="GerenciaMoto" method="post" name="dados" >
             <table>
                 <tr>   
-                    <td> Marca:</td> <td>  <input type="text" name="marca"  /></td>
+                    <td> Marca:</td> <td>  <input type="text" name="marca" required  /></td>
                 </tr>
                 <tr> 
-                    <td> Modelo:</td> <td> <input type="text" name="modelo"   /></td>
+                    <td> Modelo:</td> <td> <input type="text" name="modelo" required   /></td>
                 </tr>
                 <tr>
-                    <td> Potência: </td> <td><input type="text" name="potencia" required /></td>
+                    <td> Potência: </td> <td><input type="text" name="potencia" required/></td>
                 </tr>
                 <tr>
                     <td> Ano: </td> <td><input id="teste" type="text" name="ano" required /></td>
                 </tr>
                 <tr> 
-                    <td> Valor: </td> <td> <input type="text" name="valor" required /></td>
+                    <td> Valor: </td> <td> <input type="text" name="valor" required/></td>
                 </tr>
             </table>
             <br>
 
             <span> <input type="submit"  value="Cadastrar" name="acao" style="background-color: green" /> </span>
-            <a href="index.jsp"> <input type="button" value="Cancelar" style="background-color: red" /> </a>
+            <a href="index.html"> <input type="button" value="Cancelar" style="background-color: red" /> </a>
             <!-Todo form precisa de um submit!!! pois é ele que envia as info ->
         </form>
     </body>

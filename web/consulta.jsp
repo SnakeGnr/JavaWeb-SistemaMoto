@@ -13,6 +13,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consulta de Motos</title>
+
+        <script>
+            function confirmaExcluir() {
+                var id = document.getElementById('idDaMoto').value; //busca o value do elemento pelo seu ID
+                
+                //cria um alert do tipo 'confirm'
+                var resposta = confirm("ATENÇÂO! \n\ Deseja realmente excluir a moto de ID: " + id + " ? \n\
+               \n\ A operação não poderá ser desfeita!");
+                if (resposta == true) {
+                    return true; //se a resposta for SIM, continua..
+                } else {
+                    return false; //se a resposta for NAO, para!
+                }
+
+            }
+        </script>
+
+
     </head>
     <body>
         <h3>Motos Cadastradas: </h3>
@@ -20,6 +38,8 @@
             <a href='index.html'><input type="button" value="Home"></a>
             <a href='cadastro.html'><input type="button" value="Cadastrar Moto"></a>
             <a href='consulta.jsp'><input type="button" value="Gerenciar Motos"></a>       
+            <a href='cadastroCliente.jsp'><input type="button" value="Cadastrar Cliente"></a>
+            <a href='consultaCliente.jsp'><input type="button" value="Gerenciar Clientes"></a>      
         </div>
         <br>
         <br>
@@ -41,22 +61,22 @@
 
                 for (Moto m : motos) {
             %>
-            
+
             <form action="GerenciaMoto" method="Post">
-            <tr>
-                <td name="id_moto" value="<%=m.getId()%>"><%=m.getId()%></td>
-                <td><%=m.getMarca()%></td>
-                <td><%=m.getModelo()%></td>
-                <td><%=m.getPotencia()%></td>
-                <td><%=m.getAno()%></td>    
-                <td><%=m.getValor()%></td>
-                <td><input type="submit" value="Editar" name="acao" id="Excluir_<%=m.getId()%>" > </td>
-                <td><input type="submit" value="Excluir" name="acao" id="Alterar_<%=m.getId()%>" > </td>
-                <input type="hidden" value="<%=m.getId()%>" name="id_moto" >
-            </tr> 
+                <tr>
+                    <td><%=m.getId()%></td>
+                    <td><%=m.getMarca()%></td>
+                    <td><%=m.getModelo()%></td>
+                    <td><%=m.getPotencia()%></td>
+                    <td><%=m.getAno()%></td>    
+                    <td><%=m.getValor()%></td>
+                    <td><input type="submit" value="Editar" name="acao" > </td>
+                    <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir()"  > </td>
+                <input type="hidden" value="<%=m.getId()%>" name="id_moto" id="idDaMoto" >
+                </tr> 
             </form>
             <% }%>  
-           
+
         </table>
 
 
