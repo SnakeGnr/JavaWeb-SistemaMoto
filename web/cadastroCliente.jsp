@@ -52,7 +52,7 @@
         <form >
             <table>
                 <tr>   
-                    <td> Nome:</td> <td>  <input type="text" name="nome"  /></td>
+                    <td> Nome:</td> <td>  <input type="text" name="nome"   /></td>
                 </tr>
                 <tr> 
                     <td> Email:</td> <td> <input type="text" name="email"   /></td>
