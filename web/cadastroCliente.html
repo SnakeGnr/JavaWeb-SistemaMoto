@@ -64,16 +64,16 @@ function somente_letras() {
         </div>
         <br>
         <br>
-        <form name="formCliente" onsubmit="return valida_nome();return validaCPF()" >
+        <form name="formCliente" onsubmit="" >
             <table>
                 <tr>   
-                    <td> Nome:</td> <td>  <input id="input_nome" type="text" name="nome"   onblur="" required   /></td>
+                    <td> Nome:</td> <td>  <input id="input_nome" type="text" name="nome"   onblur="valida_nome()" required   /></td>
                 </tr>
                 <tr> 
                     <td> Email:</td> <td> <input type="text" name="email" required   /></td>
                 </tr>
                 <tr>
-                    <td> CPF: </td> <td><input id="cpf" type="text" name="cpf"  onKeyPress="maskCPF(this);return SomenteNumero(event)" maxlength="14" required/></td>
+                    <td> CPF: </td> <td><input id="cpf" type="text" name="cpf" onblur="validaCPF()" onKeyPress="maskCPF(this);return SomenteNumero(event)" maxlength="14" required/></td>
                 </tr>
                 <tr>
                     <td> DataNasc: </td> <td><input type="date" maxlength="9" name="dataNasc" onblur="" required/></td>

@@ -109,10 +109,10 @@ function maskCPF(CPF) {
         if (erro.length > 0) {
             alert(erro);
             cpf.value = "";
-            cpf.focus();
+           // cpf.focus();
             return false;
         }
-        return true;
+        return true; //se chegou aqui deu boa
     }
 
 
@@ -122,7 +122,6 @@ function maskCPF(CPF) {
         if (!filter_nome.test(nome.value)) {
             alert("ATENÇÂO! \n Campo Nome não pode conter carácteres especiais!")
             nome.value = '';
-            nome.focus();
             return false;
         }
         return true;
