@@ -13,8 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="img/favicon.ico">
         <link rel="icon" type="image/gif" href="img/animated_favicon1.gif">
-        <script language="JavaScript" src="js/myscripts.js"></script>
-      
+     
 
     </head>
 
@@ -60,4 +59,5 @@
             <!-Todo form precisa de um submit!!! pois é ele que envia as info ->
         </form>
     </body>
+    <script language="JavaScript" src="js/myscripts.js"></script>    
 </html>
