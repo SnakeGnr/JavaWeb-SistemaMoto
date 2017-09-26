@@ -18,7 +18,7 @@
 
         <script>
             function confirmaExcluir() {
-                var id = document.getElementById('idDaMoto').value; //busca o value do elemento pelo seu ID
+                var id = document.getElementById('idMoto').value; //busca o value do elemento pelo seu ID
                 
                 //cria um alert do tipo 'confirm'
                 var resposta = confirm("ATENÇÂO! \n\ Deseja realmente excluir a moto de ID: " + id + " ? \n\
@@ -74,7 +74,7 @@
                     <td><%=m.getValor()%></td>
                     <td><input type="submit" value="Editar" name="acao" > </td>
                     <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir()"  > </td>
-                <input type="hidden" value="<%=m.getId()%>" name="id_moto" id="idDaMoto" >
+                    <input type="hidden" value="<%=m.getId()%>" name="id_moto" id="idDaMoto"  >
                 </tr> 
             </form>
             <% }%>  

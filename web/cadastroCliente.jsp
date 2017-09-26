@@ -13,28 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="img/favicon.ico">
         <link rel="icon" type="image/gif" href="img/animated_favicon1.gif">
-        <script>
-            function mascara(t, mask) {
-                var i = t.value.length;
-                var saida = mask.substring(1, 0);
-                var texto = mask.substring(i)
-                if (texto.substring(0, 1) != saida) {
-                    t.value += texto.substring(0, 1);
-                }
-            }
+        <script language="JavaScript" src="js/myscripts.js"></script>
+      
 
-            function SomenteNumero(e) {
-                var tecla = (window.event) ? event.keyCode : e.which;
-                if ((tecla > 47 && tecla < 58))
-                    return true;
-                else {
-                    if (tecla == 8 || tecla == 0)
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        </script>
     </head>
 
 
@@ -49,30 +30,32 @@
         </div>
         <br>
         <br>
-        <form >
+        <form name="formCliente" onsubmit="return validaCPF(formCliente.cpf)" >
             <table>
                 <tr>   
-                    <td> Nome:</td> <td>  <input type="text" name="nome"   /></td>
+                    <td> Nome:</td> <td>  <input type="text" name="nome" required  /></td>
                 </tr>
                 <tr> 
-                    <td> Email:</td> <td> <input type="text" name="email"   /></td>
+                    <td> Email:</td> <td> <input type="text" name="email" required   /></td>
                 </tr>
                 <tr>
-                    <td> CPF: </td> <td><input type="text" name="cpf" onkeypress="mascara(this, '###.###.###-##'); return SomenteNumero(event) "  maxlength="14"/></td>
+                    <td> CPF: </td> <td><input type="text" name="cpf"  onKeyPress="maskCPF(formCliente.cpf);return SomenteNumero(event)" maxlength="14" required/></td>
                 </tr>
                 <tr>
-                    <td> DataNasc: </td> <td><input type="date" name="dataNasc" /></td>
+                    <td> DataNasc: </td> <td><input type="date" maxlength="9" name="dataNasc" onblur="" required/></td>
                 </tr>
                 <tr> 
-                    <td> Telefone: </td> <td> <input type="text" name="telefone" id="telefone" onkeypress="mascara(this, '## #####-####'); return SomenteNumero(event)" maxlength="13"/></td>
+                    <td> Telefone: </td> <td> <input type="text" name="telefone" id="telefone" onkeypress="mascara(this, '## #####-####');
+                        return SomenteNumero(event)" maxlength="13" required /></td>
                 </tr>
                 <tr> 
-                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '#####-###');return SomenteNumero(event)" maxlength="9" /></td>
+                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '#####-###');
+                        return SomenteNumero(event)" onblur="" maxlength="9" required /></td>
                 </tr>
             </table>
             <br>
 
-            <span> <input type="submit"  value="Cadastrar" name="acao" style="background-color: green" /> </span>
+            <span> <input type="submit"  value="Cadastrar" name="acao"  style="background-color: green" /> </span>
             <a href="index.html"> <input type="button" value="Cancelar" style="background-color: red" /> </a>
             <!-Todo form precisa de um submit!!! pois é ele que envia as info ->
         </form>
