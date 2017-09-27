@@ -127,3 +127,64 @@ function maskCPF(CPF) {
         return true;
     }
     
+    
+    
+    /*
+      function chama_alerta(nome) {
+                alert(nome.value);
+            }
+
+            function chama_alerta2() {
+                var nome = document.getElementById("input_nome");
+                alert(nome.value);
+                nome.value = "";
+                //document.getElementById("input_nome").focus();
+            }
+
+            function valida_nome() {
+                var nome = document.getElementById("input_nome");
+                
+                var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
+                
+                if (!filter_nome.test(nome.value)) {
+                    nome.value = '';
+                    nome.placeholder = "Nome inválido";
+                    nome.style.borderColor = "#ff0000";
+                    nome.style.outline = "#ff0000";
+                    nome.focus();
+                    return false;
+                }
+                return true;
+            }
+
+
+    function valida_nome() {
+        var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
+        if (!filter_nome.test(document.getElementById("input_nome").value)) {
+            document.getElementById("input_nome").value = '';
+            document.getElementById("input_nome").placeholder = "Nome inválido";
+            document.getElementById("input_nome").style.borderColor = "#ff0000";
+            document.getElementById("input_nome").style.outline = "#ff0000";
+            document.getElementById("input_nome").focus();
+            document.getElementById("input_nome").onkeydown = function keydown_nome() {
+                document.getElementById("input_nome").placeholder = "";
+                document.getElementById("input_nome").style.borderColor = "#999999";
+                document.getElementById("input_nome").style.outline = null;
+            }
+            return false;
+        } 
+        return true;
+    }
+
+function somente_letras() {
+        var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
+        if (!filter_nome.test(document.getElementById("input_nome").value)) {
+            alert("ATENÇÂO! \n Campo Nome não pode conter carácteres especiais!")
+            document.getElementById("input_nome").value = '';
+            document.getElementById("input_nome").focus();
+            
+            return false;
+        } 
+        return true;
+    }
+    */

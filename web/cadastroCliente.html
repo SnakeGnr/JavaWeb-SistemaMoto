@@ -7,48 +7,37 @@
         <link rel="shortcut icon" href="img/favicon.ico">
         <link rel="icon" type="image/gif" href="img/animated_favicon1.gif">
         <script>
-    function valida_nome() {
-        var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
-        if (!filter_nome.test(document.getElementById("input_nome").value)) {
-            document.getElementById("input_nome").value = '';
-            document.getElementById("input_nome").placeholder = "Nome inválido";
-            document.getElementById("input_nome").style.borderColor = "#ff0000";
-            document.getElementById("input_nome").style.outline = "#ff0000";
-            document.getElementById("input_nome").focus();
-            document.getElementById("input_nome").onkeydown = function keydown_nome() {
-                document.getElementById("input_nome").placeholder = "";
-                document.getElementById("input_nome").style.borderColor = "#999999";
-                document.getElementById("input_nome").style.outline = null;
+            function ValidaCep(cep) {
+
+                exp = /\d{2}\.\d{3}\-\d{3}/
+
+                if (!exp.test(cep.value)) {
+
+                    alert('Cep Invalido!');
+                }
             }
-            return false;
-        } 
-        return true;
-    }
 
-function somente_letras() {
-        var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
-        if (!filter_nome.test(document.getElementById("input_nome").value)) {
-            alert("ATENÇÂO! \n Campo Nome não pode conter carácteres especiais!")
-            document.getElementById("input_nome").value = '';
-            document.getElementById("input_nome").focus();
-            
-            return false;
-        } 
-        return true;
-    }
-    
-    //funcao usando argumento / usar (this)
-    function somente_letras(nome) {
-        var filter_nome = /^([a-zA-Zà-úÀ-Ú]|\s+)+$/;
-        if (!filter_nome.test(nome.value)) {
-            alert("ATENÇÂO! \n Campo Nome não pode conter carácteres especiais!")
-            nome.value = '';
-            nome.focus();
-            return false;
-        } 
-        return true;
-    }
 
+            function validacaoEmail(field) {
+                usuario = field.value.substring(0, field.value.indexOf("@"));
+                dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+                if ((usuario.length >= 1) &&
+                        (dominio.length >= 3) &&
+                        (usuario.search("@") == -1) &&
+                        (dominio.search("@") == -1) &&
+                        (usuario.search(" ") == -1) &&
+                        (dominio.search(" ") == -1) &&
+                        (dominio.search(".") != -1) &&
+                        (dominio.indexOf(".") >= 1) &&
+                        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+
+                } else {
+                    //field.value="";
+                    alert("E-mail invalido");
+                    return false;
+                }
+                return true;
+            }
 
         </script>
     </head>
@@ -70,7 +59,7 @@ function somente_letras() {
                     <td> Nome:</td> <td>  <input id="input_nome" type="text" name="nome"   onblur="valida_nome()" required   /></td>
                 </tr>
                 <tr> 
-                    <td> Email:</td> <td> <input type="text" name="email" required   /></td>
+                    <td> Email:</td> <td> <input type="text" id="msgemail" name="email" onblur="validacaoEmail(this)" required   /></td>
                 </tr>
                 <tr>
                     <td> CPF: </td> <td><input id="cpf" type="text" name="cpf" onblur="validaCPF()" onKeyPress="maskCPF(this);return SomenteNumero(event)" maxlength="14" required/></td>
@@ -83,8 +72,8 @@ function somente_letras() {
                             return SomenteNumero(event)" maxlength="13" required /></td>
                 </tr>
                 <tr> 
-                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '#####-###');
-                            return SomenteNumero(event)" onblur="" maxlength="9" required /></td>
+                    <td> CEP: </td> <td> <input type="text" name="cep" onkeypress="mascara(this, '##.###-###');
+                            return SomenteNumero(event)" onblur="ValidaCep(this)" maxlength="10" required /></td>
                 </tr>
             </table>
             <br>
