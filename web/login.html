@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function get($id) {
+                return document.getElementById($id);
+            }
+
+            function validaLogin() {
+                var login = get("input_login").value;
+                var senha = get("input_senha").value;
+
+                if (login =="admin" && senha=="admin" ) {
+                    alert("Login correto!");
+                    return true;
+                } else {
+                    alert("Login Incorreto!");
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <h1>Validação de Login com javascript!</h1>
+        <form name="formLogin" onsubmit="return validaLogin()">
+            LOGIN:  <input type="text" id="input_login" /> <br>
+            SENHA:  <input type="text" id="input_senha" /> <br>
+            <input type="submit" value="Enviar"  name="botaoEnviar"/>  
+        </form>
+
+    </body>
+</html>
