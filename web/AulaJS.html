@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Aula JavaScript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+
+            function mostraAlerta() {
+                var nome = document.getElementById("input_nome");
+                alert(nome.value);
+            }
+
+            function mostraAlerta2(nome) {
+                alert(nome.value);
+            }
+
+            function validaLogin() {
+                var login = document.getElementById("input_login")
+                var senha = document.getElementById("input_senha")
+
+                if (login.value == "admin" && senha.value == "admin") {
+                    alert("SUCESSO! \n \n  Login e senha corretos!");
+                    //window.location.href = "cadastro.html";
+                    return true;
+                    Event.preventDefault();
+                    location.assign("cadastro.html");
+                } else {
+                    alert("ERRO! \n \n  Login e/ou senha incorretos!");
+                    return false;
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <h3> Validação com Javascript </h3>
+
+        <form name="form1" onsubmit="">
+            LOGIN: <input type="text" name="input_login" id="input_login"/><br>
+            SENHA: <input type="text" name="input_senha" id="input_senha"/><br>
+            <input type="submit" value="Enviar" name="botaoEnviar" onclick="return validaLogin();"  />
+
+        </form>
+
+    </body>
+</html>
