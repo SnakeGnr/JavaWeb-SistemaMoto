@@ -6,40 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="img/favicon.ico">
         <link rel="icon" type="image/gif" href="img/animated_favicon1.gif">
-        <script>
-            function ValidaCep(cep) {
-
-                exp = /\d{2}\.\d{3}\-\d{3}/
-
-                if (!exp.test(cep.value)) {
-
-                    alert('Cep Invalido!');
-                }
-            }
-
-
-            function validacaoEmail(field) {
-                usuario = field.value.substring(0, field.value.indexOf("@"));
-                dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
-                if ((usuario.length >= 1) &&
-                        (dominio.length >= 3) &&
-                        (usuario.search("@") == -1) &&
-                        (dominio.search("@") == -1) &&
-                        (usuario.search(" ") == -1) &&
-                        (dominio.search(" ") == -1) &&
-                        (dominio.search(".") != -1) &&
-                        (dominio.indexOf(".") >= 1) &&
-                        (dominio.lastIndexOf(".") < dominio.length - 1)) {
-
-                } else {
-                    //field.value="";
-                    alert("E-mail invalido");
-                    return false;
-                }
-                return true;
-            }
-
-        </script>
+        <script language="JavaScript" src="js/myscripts.js"></script>
+        
     </head>
 
     <body>
@@ -59,7 +27,7 @@
                     <td> Nome:</td> <td>  <input id="input_nome" type="text" name="nome"   onblur="valida_nome()" required   /></td>
                 </tr>
                 <tr> 
-                    <td> Email:</td> <td> <input type="text" id="msgemail" name="email" onblur="validacaoEmail(this)" required   /></td>
+                    <td> Email:</td> <td> <input type="text" id="msgemail" name="email" onblur="" required   /></td>
                 </tr>
                 <tr>
                     <td> CPF: </td> <td><input id="cpf" type="text" name="cpf" onblur="validaCPF()" onKeyPress="maskCPF(this);return SomenteNumero(event)" maxlength="14" required/></td>
@@ -83,5 +51,5 @@
             <!-Todo form precisa de um submit!!! pois é ele que envia as info ->
         </form>
     </body>
-    <script language="JavaScript" src="js/myscripts.js"></script>
+    
 </html>
