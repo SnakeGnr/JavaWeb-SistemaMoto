@@ -6,36 +6,24 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>LOGIN</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-            function get($id) {
-                return document.getElementById($id);
-            }
-
-            function validaLogin() { //comentario novo
-                var login = get("input_login").value;
-                var senha = get("input_senha").value;
-
-                if (login =="admin" && senha=="admin" ) {
-                    alert("Login correto!");
-                    return true;
-                } else {
-                    alert("Login Incorreto!");
-                    return false;
-                }
-                return true;
-            }
-
-        </script>
+        
     </head>
     <body>
 
-        <h1>Validação de Login com javascript!</h1>
-        <form name="formLogin" onsubmit="return validaLogin()">
-            LOGIN:  <input type="text" id="input_login" /> <br>
-            SENHA:  <input type="text" id="input_senha" /> <br>
+        <h1>Login Servlet</h1>
+       
+        <form name="formLogin" action="GerenciaLogin" method="post">
+            <table>
+                <tr>   
+                    <td> LOGIN CPF:</td> <td>  <input type="text" name="input_cpf" required  /></td>
+                </tr>
+                <tr> 
+                    <td> SENHA:</td> <td> <input type="password" name="input_senha" required   /></td>
+                </tr>
+                </table>
             <input type="submit" value="Enviar"  name="botaoEnviar"/>  
         </form>
 

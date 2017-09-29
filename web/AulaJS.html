@@ -26,10 +26,10 @@ and open the template in the editor.
 
                 if (login.value == "admin" && senha.value == "admin") {
                     alert("SUCESSO! \n \n  Login e senha corretos!");
-                    //window.location.href = "cadastro.html";
-                    return true;
-                    Event.preventDefault();
-                    location.assign("cadastro.html");
+                    window.location.href = "cadastro.html";
+                    return false;
+                   // Event.preventDefault();
+                    //location.assign("cadastro.html");
                 } else {
                     alert("ERRO! \n \n  Login e/ou senha incorretos!");
                     return false;
@@ -42,10 +42,10 @@ and open the template in the editor.
     <body>
         <h3> Validação com Javascript </h3>
 
-        <form name="form1" onsubmit="">
+        <form name="form1" action="GerenciaLogin" method="post">
             LOGIN: <input type="text" name="input_login" id="input_login"/><br>
-            SENHA: <input type="text" name="input_senha" id="input_senha"/><br>
-            <input type="submit" value="Enviar" name="botaoEnviar" onclick="return validaLogin();"  />
+            SENHA: <input type="password" name="input_senha" id="input_senha"/><br>
+            <input type="submit" value="Enviar" name="botaoEnviar"  />
 
         </form>
 

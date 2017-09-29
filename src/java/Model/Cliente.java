@@ -11,7 +11,7 @@ package Model;
  */
 public class Cliente {
     private int id_cliente;
-    private String nome, email, cpf, dataNasc, fone, cep;
+    private String nome, email, cpf, dataNasc, fone, cep, senha;
 
     public Cliente() {
     }
@@ -94,6 +94,20 @@ public class Cliente {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     
