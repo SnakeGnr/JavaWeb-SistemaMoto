@@ -112,9 +112,9 @@ public class GerenciaMoto extends HttpServlet {
                 }
                 
                 System.out.println("dados da moto: "+ escolhida.getId()+" / "+escolhida.getModelo() );
-                //passa os atributos da moto escolhida para a jsp
                
-                
+               
+                 //passa o objeto moto escolhida para a jsp
                 request.setAttribute("moto", escolhida);
                
 

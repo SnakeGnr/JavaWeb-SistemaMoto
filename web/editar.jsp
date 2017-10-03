@@ -4,9 +4,16 @@
     Author     : Jr
 --%>
 
+<%@page import="Model.Moto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.servlet.*"%>
 <%@page import="javax.servlet.http.*"%>
+
+<% //estou criando uma variável do mesmo do tipo do atributo 
+    Moto moto = new Moto();
+    moto = (Moto) request.getAttribute("moto");
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,25 +39,27 @@
         </div>
         <br>
         <br>
+        <% %>
+        
         <form action="GerenciaMoto" method="post" >
             <table>
                 <tr>   
-                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%request.getAttribute("moto"); %>" required  /></td>
+                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%=moto.getId() %>"  disabled="true"   required  /></td>
                 </tr>
                 <tr>   
-                    <td> Marca:</td> <td>  <input type="text" name="marca" required  /></td>
+                    <td> Marca:</td> <td>  <input type="text" name="marca" value="<%=moto.getMarca() %>"required  /></td>
                 </tr>
                 <tr> 
-                    <td> Modelo:</td> <td> <input type="text" name="modelo" required   /></td>
+                    <td> Modelo:</td> <td> <input type="text" name="modelo"value="<%=moto.getModelo() %>" required   /></td>
                 </tr>
                 <tr>
-                    <td> Potência: </td> <td><input type="text" name="potencia" required/></td>
+                    <td> Potência: </td> <td><input type="text" name="potencia"  value="<%=moto.getPotencia()%>" required/></td>
                 </tr>
                 <tr>
-                    <td> Ano: </td> <td><input id="teste" type="text" name="ano" required /></td>
+                    <td> Ano: </td> <td><input id="teste" type="text" name="ano" value="<%=moto.getAno() %>"required /></td>
                 </tr>
                 <tr> 
-                    <td> Valor: </td> <td> <input type="text" name="valor" required/></td>
+                    <td> Valor: </td> <td> <input type="text" name="valor" value="<%=moto.getValor() %>" required/></td>
                 </tr>
             </table>
             <br>
