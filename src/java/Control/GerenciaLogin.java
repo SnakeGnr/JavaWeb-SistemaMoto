@@ -24,19 +24,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "GerenciaLogin", urlPatterns = {"/GerenciaLogin"})
 public class GerenciaLogin extends HttpServlet {
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -67,9 +64,7 @@ public class GerenciaLogin extends HttpServlet {
                 out.print("<html><body>"
                     + "<script> alert('Login e/ou senha inccorretos!'); location.href='login.html'; </script>"
                     + "</body></html>");
-            }
-            
-                      
+            }                 
         } catch (ClassNotFoundException ex) {
             System.out.println("servlet>erro no login: " + ex.getMessage());
         }

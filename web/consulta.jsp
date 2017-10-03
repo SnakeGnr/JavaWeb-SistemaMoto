@@ -74,7 +74,7 @@
                     <td><%=m.getValor()%></td>
                     <td><input type="submit" value="Editar" name="acao" > </td>
                     <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir()"  > </td>
-                    <input type="hidden" value="<%=m.getId()%>" name="id_moto" id="idDaMoto"  >
+                    <input type="hidden" name="id_moto" value="<%=m.getId()%>"  id="idMoto"  >
                 </tr> 
             </form>
             <% }%>  

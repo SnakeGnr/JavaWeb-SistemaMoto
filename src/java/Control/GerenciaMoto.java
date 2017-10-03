@@ -9,6 +9,9 @@ import Dao.MotoDao;
 import Model.Moto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,9 +43,8 @@ public class GerenciaMoto extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         //System.out.println("Chegou na servlet");
-           PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
         String acao = request.getParameter("acao"); //busca o value do botao clicado
-        
 
         if (acao.equals("Excluir")) {
             int id_moto = Integer.valueOf(request.getParameter("id_moto"));
@@ -58,15 +60,14 @@ public class GerenciaMoto extends HttpServlet {
             } catch (ClassNotFoundException ex) {
                 System.out.println("Erro ao Excluir moto servlet " + ex.getMessage());
             }
-            
-            
+
             //redirecionamento automatico 
             RequestDispatcher rd = request.getRequestDispatcher("consulta.jsp");
 
             rd.forward(request, response);
 
         } else if (acao.equals("Cadastrar")) {
-            
+
             String marca = request.getParameter("marca");
             String modelo = request.getParameter("modelo");
             String potencia = request.getParameter("potencia");
@@ -87,17 +88,43 @@ public class GerenciaMoto extends HttpServlet {
             } catch (Exception e) {
                 System.out.println("Erro ao cadastrar moto: " + e.getMessage());
             }
-            
-            out.println ("<html><body><script>alert('Hello World!');</script></body></html>");
-            
-            
+
+            out.println("<html><body><script>alert('Moto Cadastrada com sucesso!'); location.href='consulta.jsp';</script></body></html>");
+
             //redirecionamento automatico 
             RequestDispatcher rd = request.getRequestDispatcher("/consulta.jsp");
 
             rd.forward(request, response);
-            
+
         } else if (acao.equals("Editar")) {
-            out.println ("<html><body><script>alert('Hello World!');</script></body></html>");
+            int id_moto = Integer.valueOf(request.getParameter("id_moto"));
+            System.out.println("Você clicou no botão editar, id da moto: "+ id_moto);
+            Moto escolhida = new Moto();
+
+            try {
+                MotoDao dao = new MotoDao();
+                List<Moto> motos = dao.consulta();
+                //monta o objeto moto a partir do id_moto
+                for (Moto m : motos) {
+                    if (id_moto == m.getId()) {
+                        escolhida = m;
+                    }
+                }
+                
+                System.out.println("dados da moto: "+ escolhida.getId()+" / "+escolhida.getModelo() );
+                //passa os atributos da moto escolhida para a jsp
+               
+                
+                request.setAttribute("moto", escolhida);
+               
+
+                 request.getRequestDispatcher("editar.jsp").forward(request, response);
+               
+
+            } catch (ClassNotFoundException ex) {
+
+            }
+
         }
     }
 
