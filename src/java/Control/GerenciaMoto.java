@@ -118,7 +118,9 @@ public class GerenciaMoto extends HttpServlet {
                 request.setAttribute("moto", escolhida);
                
 
-                 request.getRequestDispatcher("editar.jsp").forward(request, response);
+           RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+
+            rd.forward(request, response);
                
 
             } catch (ClassNotFoundException ex) {

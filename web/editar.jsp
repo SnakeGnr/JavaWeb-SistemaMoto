@@ -35,7 +35,7 @@
         <form action="GerenciaMoto" method="post" >
             <table>
                 <tr>   
-                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%request.getAttribute("id_moto"); %>" required  /></td>
+                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%request.getAttribute("moto"); %>" required  /></td>
                 </tr>
                 <tr>   
                     <td> Marca:</td> <td>  <input type="text" name="marca" required  /></td>
