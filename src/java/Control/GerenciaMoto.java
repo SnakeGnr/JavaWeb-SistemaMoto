@@ -98,7 +98,7 @@ public class GerenciaMoto extends HttpServlet {
 
         } else if (acao.equals("Editar")) {
             int id_moto = Integer.valueOf(request.getParameter("id_moto"));
-            System.out.println("Você clicou no botão editar, id da moto: "+ id_moto);
+            System.out.println("Você clicou no botão editar, id da moto: " + id_moto);
             Moto escolhida = new Moto();
 
             try {
@@ -110,18 +110,15 @@ public class GerenciaMoto extends HttpServlet {
                         escolhida = m;
                     }
                 }
-                
-                System.out.println("dados da moto: "+ escolhida.getId()+" / "+escolhida.getModelo() );
-               
-               
-                 //passa o objeto moto escolhida para a jsp
+
+                System.out.println("dados da moto: " + escolhida.getId() + " / " + escolhida.getModelo());
+
+                //passa o objeto moto escolhida para a jsp
                 request.setAttribute("moto", escolhida);
-               
 
-           RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
 
-            rd.forward(request, response);
-               
+                rd.forward(request, response);
 
             } catch (ClassNotFoundException ex) {
 

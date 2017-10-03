@@ -44,10 +44,10 @@
         <form action="GerenciaMoto" method="post" >
             <table>
                 <tr>   
-                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%=moto.getId() %>"  disabled="true"   required  /></td>
+                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%= moto.getId() %>"  disabled="true"   required  /></td>
                 </tr>
                 <tr>   
-                    <td> Marca:</td> <td>  <input type="text" name="marca" value="<%=moto.getMarca() %>"required  /></td>
+                    <td> Marca:</td> <td>  <input type="text" name="marca" value="<%= moto.getMarca() %>"required  /></td>
                 </tr>
                 <tr> 
                     <td> Modelo:</td> <td> <input type="text" name="modelo"value="<%=moto.getModelo() %>" required   /></td>
