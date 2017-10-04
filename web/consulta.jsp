@@ -17,8 +17,8 @@
         <title>Consulta de Motos</title>
 
         <script>
-            function confirmaExcluir() {
-                var id = document.getElementById('idMoto').value; //busca o value do elemento pelo seu ID
+            function confirmaExcluir(se){ 
+                var id = document.getElementById(se).value; //busca o value do elemento pelo seu ID
                 
                 //cria um alert do tipo 'confirm'
                 var resposta = confirm("ATENÇÂO! \n\ Deseja realmente excluir a moto de ID: " + id + " ? \n\
@@ -60,7 +60,7 @@
             </tr>
             <% MotoDao dao = new MotoDao();
                 List<Moto> motos = dao.consulta();
-
+                int x= 0;        
                 for (Moto m : motos) {
             %>
 
@@ -73,8 +73,9 @@
                     <td><%=m.getAno()%></td>    
                     <td><%=m.getValor()%></td>
                     <td><input type="submit" value="Editar" name="acao" > </td>
-                    <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir()"  > </td>
-                    <input type="hidden" name="id_moto" value="<%=m.getId()%>"  id="idMoto"  >
+                    <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir('idMoto_<%= x %>')"  > </td>
+                    <input type="hidden" name="id_moto" value="<%=m.getId()%>"  id="<%= "idMoto_"+x%>"  >
+                    <% x++;%>
                 </tr> 
             </form>
             <% }%>  
