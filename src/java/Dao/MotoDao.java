@@ -93,9 +93,29 @@ public class MotoDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+} 
 
-    } 
+    public void alterar (Moto m){
+        String sql = "update Moto set marca=?, modelo=?, potencia=?, ano=?, valor=? where id = ?;";
+        
+        try {
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, m.getModelo());
+            st.setString(2, m.getMarca());
+            st.setInt(3, m.getPotencia());
+            st.setInt(4, m.getAno());
+            st.setDouble(5, m.getValor());
+            st.setInt(6, m.getId());
+
+            st.execute();
+            
+        } catch (SQLException e) {
+            System.out.println("Dao>erro ao alterar "+e);
+        }
+        
+        
+    }
     
      public Moto PesquisaID(int id_moto) {
 

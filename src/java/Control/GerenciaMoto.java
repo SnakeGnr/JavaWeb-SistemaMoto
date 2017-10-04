@@ -87,12 +87,8 @@ public class GerenciaMoto extends HttpServlet {
                 System.out.println("Erro ao cadastrar moto: " + e.getMessage());
             }
 
+            //Alert e redirecionamento automatico 
             out.println("<html><body><script>alert('Moto Cadastrada com sucesso!'); location.href='consulta.jsp';</script></body></html>");
-
-            //redirecionamento automatico 
-            RequestDispatcher rd = request.getRequestDispatcher("/consulta.jsp");
-
-            rd.forward(request, response);
 
         } else if (acao.equals("Editar")) {
             int id_moto = Integer.valueOf(request.getParameter("id_moto"));
@@ -108,7 +104,6 @@ public class GerenciaMoto extends HttpServlet {
                         escolhida = m;
                     }
                 }
-
                 System.out.println("dados da moto: " + escolhida.getId() + " / " + escolhida.getModelo());
 
                 //passa o objeto moto escolhida para a jsp
@@ -121,6 +116,33 @@ public class GerenciaMoto extends HttpServlet {
             } catch (ClassNotFoundException ex) {
 
             }
+
+        } else if (acao.equals("Atualizar")) {
+            int id_moto = Integer.valueOf(request.getParameter("id_moto"));
+            System.out.println("chegou id: "+ id_moto);
+            String marca = request.getParameter("marca");
+            String modelo = request.getParameter("modelo");
+            int potencia = Integer.valueOf(request.getParameter("potencia"));
+            int ano = Integer.valueOf(request.getParameter("ano"));
+            Double valor = Double.valueOf(request.getParameter("valor"));
+
+            Moto m = new Moto();
+            m.setId(id_moto);
+            m.setMarca(marca);
+            m.setModelo(modelo);
+            m.setPotencia(potencia);
+            m.setAno(ano);
+            m.setValor(valor);
+
+            try {
+                MotoDao dao = new MotoDao();
+                dao.alterar(m);
+
+            } catch (ClassNotFoundException e) {
+                System.out.println("Servlet > Erro ao alterar Moto: "+ e.getMessage());
+            }
+
+            out.println("<html><body><script>alert('Moto Alterada com sucesso!'); location.href='consulta.jsp';</script></body></html>");
 
         }
     }

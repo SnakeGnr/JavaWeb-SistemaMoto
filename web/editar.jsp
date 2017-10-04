@@ -43,8 +43,9 @@
         
         <form action="GerenciaMoto" method="post" >
             <table>
+                 <input type="hidden" name="id_moto" value="<%=moto.getId()%>"  id="id_moto"  >
                 <tr>   
-                    <td> ID:</td> <td>  <input type="text" name="id_moto"  value="<%= moto.getId() %>"  disabled="true"   required  /></td>
+                    <td> ID:</td> <td>  <input type="text" value="<%= moto.getId() %>"  disabled="true"   required  /></td>
                 </tr>
                 <tr>   
                     <td> Marca:</td> <td>  <input type="text" name="marca" value="<%= moto.getMarca() %>"required  /></td>
@@ -64,7 +65,7 @@
             </table>
             <br>
 
-            <span> <input type="submit"  value="Atualizar" name="acao" style="background-color: green" /> </span>
+            <input type="submit"  value="Atualizar" name="acao" style="background-color: green" />
             <a href="consulta.jsp"> <input type="button" value="Cancelar" style="background-color: red" /> </a>
             <!-Todo form precisa de um submit!!! pois é ele que envia as info ->
         </form>

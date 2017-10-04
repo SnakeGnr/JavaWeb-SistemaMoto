@@ -28,11 +28,8 @@
                 } else {
                     return false; //se a resposta for NAO, para!
                 }
-
             }
         </script>
-
-
     </head>
     <body>
         <h3>Motos Cadastradas: </h3>
@@ -72,8 +69,9 @@
                     <td><%=m.getPotencia()%></td>
                     <td><%=m.getAno()%></td>    
                     <td><%=m.getValor()%></td>
-                    <td><input type="submit" value="Editar" name="acao" > </td>
-                    <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir('idMoto_<%= x %>')"  > </td>
+                    <td><input type="submit" value="Editar" name="acao"  style="background-color: aqua;" > </td>
+                    <td><input type="submit" value="Excluir" name="acao" onclick="return confirmaExcluir('idMoto_<%= x %>')" 
+                               style="background-color: red;" > </td>
                     <input type="hidden" name="id_moto" value="<%=m.getId()%>"  id="<%= "idMoto_"+x%>"  >
                     <% x++;%>
                 </tr> 
